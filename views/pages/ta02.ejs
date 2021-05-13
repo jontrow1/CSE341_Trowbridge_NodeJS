@@ -8,12 +8,32 @@
   <% include ../includes/nav.ejs %>
 <div class="jumbotron text-center">
   <div class="container">
-    <h1><%= title %></h1>
-    <p>This is the placeholder for Team Activity 02</p>
+    <h1><%= title %></h1>    
   </div>
 </div>
 <div class="container">
-  
+  <% if(exists == false) { %>
+    <h2> Username is not located within the user list</h2>
+  <% } %>
+  <% if(dup == true) { %>
+    <h2> That username already exists!</h2>
+  <% } %>
+  <form class="user-form" action="/ta02/addUser" method="POST">
+    <label for="username">Add Username: </label>
+    <input type="text" name="username">
+    <button type="submit">Add User</button>
+  </form>
+  <form class="remove-form" action="/ta02/removeUser" method="POST">
+    <label for="removal">Remove Username: </label>
+    <input type="text" name="removal">
+    <button type="submit">Remove User</button>
+  </form>
+</div>
+<div>
+  <h1>A list of Users:</h1>
+  <% for(user of users) { %>
+    <p><%= user %></p>
+  <% } %>  
 </div>
 
 
