@@ -36,7 +36,7 @@ router.post('/removeUser',(req, res, next) => {
 });
 
 router.get('/',(req, res, next) => {
-    res.render('pages/ta02', { 
+    res.render('pages/teamActivities/ta02', { 
         title: 'Team Activity 02',
         users: userArray, 
         exists: exists,

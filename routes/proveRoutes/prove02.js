@@ -1,17 +1,18 @@
-const PORT = process.env.PORT || 5000
+//const PORT = process.env.PORT || 5000
 const express = require('express');
+const app = express.Router();
 
-const app = express();
-const bodyParser = require('body-parser');
-const path = require('path');
+// const app = express();
+// const bodyParser = require('body-parser');
+// const path = require('path');
 
 const bookArray = [];
 
-app.use(express.static(path.join(__dirname, 'public')))
-app.set('view engine', 'ejs');
-app.set('views', 'views');
+// app.use(express.static(path.join(__dirname, 'public')))
+// app.set('view engine', 'ejs');
+// app.set('views', 'views');
 
-app.use(bodyParser.urlencoded( {extended: false}));
+//app.use(bodyParser.urlencoded( {extended: false}));
 
 app.get('/', (req, res, next) => {
     res.render('index', { pageTitle: 'Add Book'});
@@ -35,5 +36,6 @@ app.use((req, res, next) => {
 })
 
 // app.listen(5000);
-app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+// app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
+module.exports = app;

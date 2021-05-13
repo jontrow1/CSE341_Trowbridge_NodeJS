@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('includes/header.ejs') %>
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main>
+        <h2>Add A Book</h2>
+        <form action="/add-book", method="POST">
+            <label for="bookTitle">Title: </label>
+            <input type="text", name="bookTitle">
+            <label for="bookAuthor">Author: </label>
+            <input type="text", name="bookAuthor">
+            <label for="bookSummary">Summary: </label>
+            <input type="text", name="bookSummary"><br>
+            <button type="submit">Add Book</button>
+        </form>
+    </main>
+</body>
+</html>

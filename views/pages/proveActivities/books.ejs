@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('includes/header.ejs') %>
+<body>
+    <%- include('includes/navigation.ejs') %>
+    <main>
+        <h2>Books</h2>
+        <% if(books.length > 0) { %> 
+            <ul>
+                <% for(book of books) { %>
+                    <li>
+                        <p><%= book.title %></p>
+                        <p><%= book.author %></p>
+                        <p><%= book.summary %></p>
+                    </li>
+                <% } %>
+            </ul>
+        <% } else { %>
+            <h2>No Books Found!</h2>
+        <% } %>
+    </main>
+</body>
+</html>
