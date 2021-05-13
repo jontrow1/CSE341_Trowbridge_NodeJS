@@ -9,11 +9,35 @@
 <div class="jumbotron text-center">
   <div class="container">
     <h1><%= title %></h1>
-    <p>This is the placeholder for Team Activity 03</p>
+    <p><Catalog from external JSON</p>
+      
   </div>
 </div>
 <div class="container">
+  <form action="/teamActivities/ta03/search" method="post">
+    <input type="text" name="tag">
+    <button class="btn" type="submit">Search</button>
+  </form>
+  <h2 id="h2-ta03">Our Products:</h2>
   
+  <table>
+    <tr>
+      <!--th>Tags</th-->
+      <th>Image</th>
+      <th>Price</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr> 
+    <% for (let row=0; row<catalog.length; row++) { %>  
+      <tr>
+        <!--td></td-->     
+        <td><img src=<%= catalog[row].imageUrl %> width="250" height="250"></td> 
+        <td>$<%= catalog[row].price %></td>  
+        <td><%= catalog[row].name %></td>  
+        <td width="400"><%= catalog[row].description %></td>  
+      </tr>
+    <% } %>
+  </table>
 </div>
 
 

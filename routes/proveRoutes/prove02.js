@@ -1,17 +1,12 @@
 //const PORT = process.env.PORT || 5000
 const express = require('express');
 const router = express.Router();
-
-// const router = express();
 // const bodyParser = require('body-parser');
 // const path = require('path');
-
 const bookArray = [];
-
 // router.use(express.static(path.join(__dirname, 'public')))
 // router.set('view engine', 'ejs');
 // router.set('views', 'views');
-
 // router.use(bodyParser.urlencoded( {extended: false}));
 
 router.get('/', (req, res, next) => {
@@ -37,7 +32,6 @@ router.post('/add-book', (req, res, next) => {
     });
     res.redirect('/proveAssignments/books');
 });
-
 // router.listen(5000);
 // router.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
