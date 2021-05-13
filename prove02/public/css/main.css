@@ -1,0 +1,88 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header {  
+    padding-left: 5px;  
+    height: 105px;    
+    background-color: aquamarine;
+    border: 1px solid rgb(102, 206, 171);
+}
+
+.headerTitle {
+    font-family: cursive;
+}
+
+nav a {
+    margin: 10px;
+    width: 100px;
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(83, 83, 83);
+    border-radius: 10%;
+    background-color: rgb(102, 206, 171);
+}
+
+nav a:hover,
+nav a:active {
+    font-weight: bold;
+    color: rgb(102, 206, 171);
+    background-color: rgb(83, 83, 83);
+}
+
+main {
+    padding-left: 5px;
+}
+
+form {
+    width: 500px;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-gap: 10px;
+}
+
+input, label {
+    padding: 10px;
+}
+
+button {
+    width: 100px;
+    padding: 5px;
+    color: rgb(83, 83, 83);
+    background-color: rgb(102, 206, 171);
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+button:hover {
+    font-weight: bold;
+    color: rgb(102, 206, 171);
+    background-color: rgb(83, 83, 83);
+    cursor: pointer;
+}
+
+ul {
+    list-style-type:none;
+    color: rgb(83, 83, 83);
+}
+
+li {
+    padding-top: 10px;
+    border-bottom: rgb(102, 206, 171) 1px dotted;
+}
+
+li p {
+    line-height: 5px;
+}
+
+li p:first-child {
+    font-weight: bold;
+    font-size: 125%;
+}
+
+li p:last-child {
+    font-style: italic;
+}
