@@ -18,7 +18,7 @@ router.post('/addUser',(req, res, next) => {
     } else {
         dup = true;
     };    
-    res.redirect('/ta02');
+    res.redirect('/teamActivities/ta02');
 });
 
 router.post('/removeUser',(req, res, next) => {
@@ -32,7 +32,7 @@ router.post('/removeUser',(req, res, next) => {
         exists = false;
     };
     
-    res.redirect('/ta02');
+    res.redirect('/teamActivities/ta02');
 });
 
 router.get('/',(req, res, next) => {

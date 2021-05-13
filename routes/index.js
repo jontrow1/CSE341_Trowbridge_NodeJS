@@ -1,11 +1,11 @@
 const routes = require('express').Router();
 //const shopProject = require('./shopProject');
-const proveActivities = require('./proveRoutes');
+const proveAssignments = require('./proveRoutes');
 const teamActivities = require('./teamRoutes');
 
 routes
-    //.use('./shopProject', shopProject)
-    .use('./proveActivities', proveActivities)
+    //.use('/shopProject', shopProject)
+    .use('/proveAssignments', proveAssignments)
     .use('/teamActivities', teamActivities)
 
     .get('/', (req, res, next) => {

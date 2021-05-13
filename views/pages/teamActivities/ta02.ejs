@@ -18,12 +18,12 @@
   <% if(dup == true) { %>
     <h2> That username already exists!</h2>
   <% } %>
-  <form class="user-form" action="/ta02/addUser" method="POST">
+  <form class="user-form" action="/teamActivities/ta02/addUser" method="POST">
     <label for="username">Add Username: </label>
     <input type="text" name="username">
     <button type="submit">Add User</button>
   </form>
-  <form class="remove-form" action="/ta02/removeUser" method="POST">
+  <form class="remove-form" action="/teamActivities/ta02/removeUser" method="POST">
     <label for="removal">Remove Username: </label>
     <input type="text" name="removal">
     <button type="submit">Remove User</button>

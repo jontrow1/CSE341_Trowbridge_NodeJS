@@ -1,41 +1,44 @@
 //const PORT = process.env.PORT || 5000
 const express = require('express');
-const app = express.Router();
+const router = express.Router();
 
-// const app = express();
+// const router = express();
 // const bodyParser = require('body-parser');
 // const path = require('path');
 
 const bookArray = [];
 
-// app.use(express.static(path.join(__dirname, 'public')))
-// app.set('view engine', 'ejs');
-// app.set('views', 'views');
+// router.use(express.static(path.join(__dirname, 'public')))
+// router.set('view engine', 'ejs');
+// router.set('views', 'views');
 
-//app.use(bodyParser.urlencoded( {extended: false}));
+// router.use(bodyParser.urlencoded( {extended: false}));
 
-app.get('/', (req, res, next) => {
-    res.render('index', { pageTitle: 'Add Book'});
+router.get('/', (req, res, next) => {
+    res.render('pages/proveAssignments/prove02', { 
+        pageTitle: 'Prove 02',
+        path: '/prove02'
+    });
 });
 
-app.get('/books', (req, res, next) => {
-    res.render('books', {pageTitle: 'Book', books: bookArray});
+router.get('/books', (req, res, next) => {
+    res.render('pages/proveAssignments/books', {
+        pageTitle: 'Book', 
+        books: bookArray,
+        path: '/prove02'
+    });
 });
 
-app.post('/add-book', (req, res, next) => {
+router.post('/add-book', (req, res, next) => {
     bookArray.push({
         title: req.body.bookTitle,
         author: req.body.bookAuthor,
         summary: req.body.bookSummary
     });
-    res.redirect('/books');
+    res.redirect('/proveAssignments/books');
 });
 
-app.use((req, res, next) => {
-    res.status(404).render('404', {pageTitle: 'Page Not Found', path: '/404'});
-})
+// router.listen(5000);
+// router.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-// app.listen(5000);
-// app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
-
-module.exports = app;
+module.exports = router;
