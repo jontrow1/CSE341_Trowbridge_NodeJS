@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')))
    // For view engine as hbs (Handlebars)
    //.engine('hbs', expressHbs({layoutsDir: 'views/layouts/', defaultLayout: 'main-layout', extname: 'hbs'})) // For handlebars
    //.set('view engine', 'hbs')
-   .use(bodyParser({extended: false})) // For parsing the body of a POST
+   .use(bodyParser.urlencoded({extended: false})) // For parsing the body of a POST
    // ~~~~~~~~ NEW ~~~~~~~~~
    .use('/', routes)
   //  .use('/ta01', ta01Routes)
