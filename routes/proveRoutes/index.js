@@ -1,5 +1,5 @@
-const path = require('path');
-const routes = require('express').Router();
+const express = require('express');
+const routes = express.Router();
 
 routes
     .use('/prove01', require('./prove01'))

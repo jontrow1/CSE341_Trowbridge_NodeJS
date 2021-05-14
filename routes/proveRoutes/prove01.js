@@ -6,8 +6,8 @@ router.get('/', (req, res, next) => {
     res.setHeader('Content-Type', 'text/html');
     res.write('<html>');
     res.write('<head><title>Assignment 1</title></head>');
-    res.write('<body><h1>Enter a Username</h1><form action="/create-user" method="POST"><label for="username">Username: </label><input type="text" name="username" id="username"><button type="submit">Send</button></form></body>');
-    res.write('</html>');
+    res.write('<body><h1>Enter a Username</h1><form action="/prove01/create-user" method="POST"><label for="username">Username: </label><input type="text" name="username" id="username"><button type="submit">Send</button></form></body>');
+    console.log("We got here");
     return res.end();
 });
 
@@ -20,7 +20,7 @@ router.get('/users', (req, res, next) => {
     return res.end();
 });
 
-router.get('/create-user', (req, res, next) => {
+router.post('/create-user', (req, res, next) => {
     const body = [];
     req.on('data', chunk =>{
         body.push(chunk);
