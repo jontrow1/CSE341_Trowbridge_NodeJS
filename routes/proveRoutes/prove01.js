@@ -21,19 +21,24 @@ router.get('/users', (req, res, next) => {
 
 router.post('/create-user', (req, res, next) => {
     const body = [];
-
+    const name = req.body.username;
+    body.push(name)
+    const data = body.toString();
+    console.log(data);
     //skipping both req.on's - figure out tomorrow
-    req.on('data', chunk => {
-        body.push(chunk);
-    });
-    req.on('end', () => {
-        const parsedBody = Buffer.concat(body).toString();
-        console.log(parsedBody.split('=')[1]);
-    });
+    // req.on('data', chunk => {
+    //     body.push(chunk);
+    // });
+    // req.on('end', () => {
+    //     const parsedBody = Buffer.concat(body).toString();
+    //     console.log(parsedBody.split('=')[1]);
+    // });
     res.statusCode = 302;
     res.setHeader('Location', '/proveAssignments/prove01');
     res.end();
 });
+
+
 // const requestHandler = (req, res) => {
 //     const url = req.url;
 //     if (url === '/') {

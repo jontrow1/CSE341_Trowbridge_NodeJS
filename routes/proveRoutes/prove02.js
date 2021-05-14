@@ -30,7 +30,7 @@ router.post('/add-book', (req, res, next) => {
         author: req.body.bookAuthor,
         summary: req.body.bookSummary
     });
-    res.redirect('/proveAssignments/books');
+    res.redirect('./books');
 });
 // router.listen(5000);
 // router.listen(PORT, () => console.log(`Listening on ${ PORT }`));
