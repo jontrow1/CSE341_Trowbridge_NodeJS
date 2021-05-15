@@ -1,24 +1,24 @@
-const PORT = process.env.PORT || 3000
-const path = require('path');
+// const PORT = process.env.PORT || 3000
+// const path = require('path');
 
 const express = require('express');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const errorController = require('./controllers/error');
+// const errorController = require('./controllers/error');
 // const mongoConnect = require('./util/database').mongoConnect;
 const User = require('./models/user');
 
-const app = express();
+const app = express.Router();
 
-app.set('view engine', 'ejs');
-app.set('views', 'views'); 
+// app.set('view engine', 'ejs');
+// app.set('views', 'views'); 
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(bodyParser.urlencoded({extended: false}));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
     User.findById('609a3e3f53487b31943accf9')
@@ -30,9 +30,15 @@ app.use((req, res, next) => {
 });
 
 app.use('/admin', adminRoutes);
-app.use(shopRoutes);
+app.use('/shop', shopRoutes);
+app.get('/', (req, res, next) => {
+    res.render('pages/shopProject/', {
+        pageTitle: 'Shop Project',
+        path: '/shopProject'
+    });
+});
 
-app.use(errorController.get404);
+// app.use(errorController.get404);
 
 mongoose.connect('mongodb+srv://jonathan:jonmongodb@cluster0.s3icc.mongodb.net/shop?retryWrites=true&w=majority',{useUnifiedTopology: true})
     .then(result => {
@@ -49,7 +55,9 @@ mongoose.connect('mongodb+srv://jonathan:jonmongodb@cluster0.s3icc.mongodb.net/s
             }
         });        
         //app.listen(3000);
-        app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+        // app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
     }).catch(err => {
         console.log(err);
     });
+
+module.exports = app;
