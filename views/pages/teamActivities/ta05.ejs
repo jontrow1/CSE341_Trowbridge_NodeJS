@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../../includes/header.ejs %>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/<%= cssFile %>" />
+</head>
+
+<body>
+  <% include ../../includes/nav.ejs %>
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1><%= title %></h1>
+  </div>
+</div>
+<div class="container">
+  <form action="ta05/change-style" method="post">
+    <label>
+      <input type="radio" name="stylepicker" id="style0" value="style0"/>Style 0
+    </label>
+    <label>
+      <input type="radio" name="stylepicker" id="style1" value="style1"/>Style 1
+    </label>
+    <label>
+      <input type="radio" name="stylepicker" id="style2" value="style2"/>Style 2
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+  <hr>
+  <p><%=count%></p>
+  <form action="ta05/countDown" method="post">
+    
+    <button type="submit">Down</button>
+  </form>
+  <form action="ta05/countUp" method="post">
+    
+    <button type="submit">Up</button>
+  </form>
+  <form action="ta05/reset" method="post">
+    
+    <button type="submit">Reset Session</button>
+  </form>
+</div>
+
+
+</body>
+</html>
