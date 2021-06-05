@@ -4,6 +4,7 @@ const routes = express.Router();
 routes
     .use('/prove01', require('./prove01'))
     .use('/prove02', require('./prove02'))
+    .use('/prove08', require('./prove08'))
     .get('/', (req, res, next) => {
         res.render('pages/proveAssignments/', {
             pageTitle: 'Prove Assignments',

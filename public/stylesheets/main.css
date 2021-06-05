@@ -65,3 +65,24 @@ tr:nth-child(even) {
 form {
   float: right;
 }
+
+.pagination {
+  margin-top: 2rem;
+  text-align: center;
+  display: block;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #0065BD;
+  padding: 0.5rem;
+  border: 1px solid #0065BD;
+  margin: 0 1rem;
+}
+
+.pagination a:hover,
+.pagination a:active,
+.pagination a.active {
+  background: #0065BD;
+  color: #dddddd;
+}
