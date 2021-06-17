@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../../includes/header.ejs %>
+  <link rel="stylesheet" href="/stylesheets/prove09.css">
+</head>
+
+<body>
+  <% include ../../includes/nav.ejs %>
+<div class="jumbotron text-center">
+    <h1>Prove 10</h1>
+</div>
+<div class="container">
+  <h1>Names:</h1>
+  <ul id="nameList" class="">
+  </ul>
+  <h2>Submit a name</h2>
+  <div class="actions_container">
+      <input type="text" id="newName">
+      <button id="submitName" onclick="submitName()">Submit</button>
+  </div>
+<script src="/scripts/prove10.js"></script>
+
+</body>
+</html>

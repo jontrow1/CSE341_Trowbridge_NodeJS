@@ -22,12 +22,3 @@ app.get('/', (req, res, next) => {
 });
 
 module.exports = app;
-
-// const express = require('express');
-
-// const prove09Controller = require('./controllers/prove09');
-// const router = express.Router();
-
-// router.get('/pokemon/:page', prove09Controller.getPokemon);
-      
-// module.exports = router;

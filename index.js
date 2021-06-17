@@ -39,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')))
    .set('view engine', 'ejs')
    
    .use(bodyParser.urlencoded({extended: true}))
+   .use(bodyParser.json())
    .use(multer({storage: fileStorage, fileFilter: fileFilter}).single('image'))
    // ~~~~~~~~ NEW ~~~~~~~~~
    .use('/', routes)
