@@ -56,4 +56,18 @@ app.use(express.static(path.join(__dirname, 'public')))
   //    res.render('pages/404', {title: '404 - Page Not Found', path: req.url})
   //  })
 
- .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+ //.listen(PORT, () => console.log(`Listening on ${ PORT }`));
+
+ 
+
+const server = app.listen(PORT)
+
+const io = require('socket.io')(server)
+
+io.on('connection', socket => {
+    console.log('Client connected')
+
+    socket.on('new-name', () => {
+        socket.broadcast.emit('update-list')
+    })
+})
