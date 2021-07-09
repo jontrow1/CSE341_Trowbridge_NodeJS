@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../../includes/header.ejs %>
+    <link href="/stylesheets/prove12.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <% include ../../includes/nav.ejs %>
+    <div class="container_12">
+        <h1>Login:</h1>
+        <div class="form">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username">
+            <button onclick="login()">Enter chat</button>
+        </div>
+        <div class="container_12" id="errMsg">
+            <!-- Blank area for login error messages -->
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/scripts/prove12.js"></script>

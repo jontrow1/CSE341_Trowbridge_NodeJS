@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const path = require('path');
+const session = require('express-session');
 
 const timestamp = new Date().toISOString().replace(/[:]/g,"");
 const fileStorage = multer.diskStorage({
@@ -41,6 +42,15 @@ app.use(express.static(path.join(__dirname, 'public')))
    .use(bodyParser.urlencoded({extended: true}))
    .use(bodyParser.json())
    .use(multer({storage: fileStorage, fileFilter: fileFilter}).single('image'))
+   .use(
+      session({
+        // Simple and not very secure session
+        secret: 'random_text',
+        cookie: {
+          httpOnly: false, // Permit access to client session
+        },
+      })
+    )
    // ~~~~~~~~ NEW ~~~~~~~~~
    .use('/', routes)
   //  .use('/ta01', ta01Routes)
@@ -62,12 +72,42 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 const server = app.listen(PORT)
 
-const io = require('socket.io')(server)
+// const io = require('socket.io')(server)
 
-io.on('connection', socket => {
-    console.log('Client connected')
+// io.on('connection', socket => {
+//     console.log('Client connected')
 
-    socket.on('new-name', () => {
-        socket.broadcast.emit('update-list')
+//     socket.on('new-name', () => {
+//         socket.broadcast.emit('update-list')
+//     })
+// })
+
+const io = require('socket.io')(server);
+io.on('connection', (socket) => {
+  console.log('Client connected!');
+
+  socket
+    .on('disconnect', () => {
+      console.log('A client disconnected!');
     })
-})
+    .on('newUser', (username, time) => {
+      // A new user logs in.
+      const message = `${username} has logged on.`;
+      // Tell other users someone has logged on.
+      socket.broadcast.emit('newMessage', {
+        message,
+        time,
+        from: 'admin',
+      });
+    })
+    .on('message', (data) => {
+      // Receive a new message
+      console.log('Message received');
+      console.log(data);
+      // This one is simple. Just broadcast the data we received.
+      // We can use { ...data } to copy the data object.
+      socket.broadcast.emit('newMessage', {
+        ...data,
+      }); // Note, only emits to all OTHER clients, not sender.
+    });
+});
